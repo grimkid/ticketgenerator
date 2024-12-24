@@ -43,7 +43,7 @@ public class RandomService {
         }, 0, 1, TimeUnit.SECONDS);
     }
 
-    private static List<Integer> generateNumbers() {
+    static List<Integer> generateNumbers() {
         final List<Integer> numbers = new ArrayList<>(90);
         for (int i = 0; i <= 9; i++) {
             numbers.add(i);
@@ -52,7 +52,7 @@ public class RandomService {
         return numbers;
     }
 
-    private void handleLowTicketNumbers() {
+    void handleLowTicketNumbers() {
         Thread.ofVirtual().start(() -> {
             while(ticketNumbers.size() < 1000) {
                 ticketNumbers.add(generateNumbers());
