@@ -16,18 +16,11 @@ public class BingoTicketGenerator {
     public static int ticketsInStrip = 6;
 
     public static Ticket[] generateStrip() {
-        while (true) {
-            try {
-                return generateStripAttempt();
-            } catch (IllegalStateException e) {
-                // Retry if generation fails
-                continue;
-            }
-        }
+        return generateStripAttempt();
     }
 
     private static Ticket[] generateStripAttempt() {
-       final Ticket[] strip = new Ticket[TICKETS_IN_STRIP];
+        final Ticket[] strip = new Ticket[TICKETS_IN_STRIP];
         for (int i = 0; i < TICKETS_IN_STRIP; i++) {
             strip[i] = new Ticket();
         }
